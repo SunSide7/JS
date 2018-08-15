@@ -3,6 +3,7 @@ let item = document.querySelectorAll('.menu-item');
 let column = document.querySelectorAll(".column")[1];
 let title = document.querySelector(".title");
 let adv = document.querySelector(".adv");
+let promptVar = document.querySelector(".prompt");
 
 let newLi = document.createElement("li");
 
@@ -20,3 +21,5 @@ title.textContent = "Мы продаем только подлинную тех�
 column.removeChild(adv);
 
 let question = prompt("А как вы относитесь к технике Apple?");
+promptVar.textContent = question;
+

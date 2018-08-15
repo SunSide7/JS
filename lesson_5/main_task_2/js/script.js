@@ -1,12 +1,12 @@
 let openBtn = document.getElementById("open-btn");
 // поля в левом меню
-let nameValue = document.getElementsByClassName("name-value");
-let budgetValue = document.getElementsByClassName("budget-value");
-let goodsValue = document.getElementsByClassName("goods-value");
-let itemsValue = document.getElementsByClassName("items-value");
-let employersValue = document.getElementsByClassName("employers-value");
-let discountValue = document.getElementsByClassName("discount-value");
-let isopenValue = document.getElementsByClassName("isopen-value");
+let nameValue = document.getElementsByClassName("name-value")[0];
+let budgetValue = document.getElementsByClassName("budget-value")[0];
+let goodsValue = document.getElementsByClassName("goods-value")[0];
+let itemsValue = document.getElementsByClassName("items-value")[0];
+let employersValue = document.getElementsByClassName("employers-value")[0];
+let discountValue = document.getElementsByClassName("discount-value")[0];
+let isopenValue = document.getElementsByClassName("isopen-value")[0];
 //кнопки
 let goodsItemBtn = document.getElementsByTagName("button")[1];
 let countBudgetBtn = document.getElementsByTagName("button")[2];
