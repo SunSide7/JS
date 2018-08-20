@@ -1,0 +1,22 @@
+.calendar {
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    border: 2px solid blue;
+    margin-left: calc(50% - 500px/2);
+    font-size: 40px;
+};
+
+.time {
+    font-size: 80px;
+    color: blue;
+    background-color: red;
+};
+
+.data {
+    background-color: #aeaeae;
+};
+
+input {
+    display: block;
+}
