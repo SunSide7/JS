@@ -1,8 +1,75 @@
 window.addEventListener('DOMContentLoaded', function() { //скрипт, запускающий все скрипты внутри себя только после подгрузки всех элементов на странице
 
-	let tab  = document.getElementsByClassName('info-header-tab'),
+	// Timer
+	let deadline = '2018-08-21'; //+
+	function getTimeRemaining(endtime) { //+
+		let t = Date.parse(endtime) - Date.parse(new Date()), //+
+				seconds = Math.floor( (t/1000) % 60 ), //+
+				minutes = Math.floor( (t/1000/60) % 60), //+
+				hours = Math.floor( (t/(1000*60*60)) ); //+
+
+				
+				for (i = 0; i < 10; i++) {
+					if (seconds == i) {
+						seconds = "0" + i;
+					};
+					if (minutes == i) {
+						minutes = "0" + i;
+					};
+					if (hours == i) {
+						hours = "0" + i;
+					};
+					if (seconds < 0 || minutes < 0 || hours < 0) {
+						return { //+
+							'total': t, //+
+							'hours': "00", //+
+							'minutes': "00", //+
+							'seconds': "00" //+
+						}; //+
+					};
+				};
+
+		return { //+
+			'total': t, //+
+			'hours': hours, //+
+			'minutes': minutes, //+
+			'seconds': seconds //+
+		}; //+
+	}; //+
+
+	function setClock(id, endtime) { //+
+		let timer = document.getElementById(id), //+
+				hours = timer.querySelector('.hours'), //+
+				minutes = timer.querySelector('.minutes'), //+
+				seconds = timer.querySelector('.seconds'); //+
+
+
+		function  updateClock() { //+
+			let t = getTimeRemaining(endtime); //+
+
+			hours.innerHTML = t.hours; //+
+			minutes.innerHTML = t.minutes; //+
+			seconds.innerHTML = t.seconds; //+
+
+
+			if (t.total <= 0) { //+
+				// clearInterval(timeInterval);
+			};
+
+		};
+		updateClock();
+		let timeInterval = setInterval(updateClock, 1000);
+
+	};
+	setClock('timer', deadline);
+
+		let tab  = document.getElementsByClassName('info-header-tab'),
 			tabContent = document.getElementsByClassName('info-tabcontent'),
 			info = document.getElementsByClassName('info-header')[0];
+
+
+
+
 
 	// функция скрытия табов
 	function hideTabContent(a) {
@@ -13,6 +80,7 @@ window.addEventListener('DOMContentLoaded', function() { //скрипт, зап�
 	};
 
 	hideTabContent(1);
+
 
 	// функция показа табов
 	function showTabContent(b) {
@@ -37,43 +105,7 @@ window.addEventListener('DOMContentLoaded', function() { //скрипт, зап�
 		};
 	});
 
-	// Timer
-
-	let deadline = '2018-03-20'; //+
-	function getTimeRemaining(endtime) { //+
-		let t = Date.parse(endtime) - Date.parse(new Date()), //+
-				seconds = Math.floor( (t/1000) % 60 ), //+
-				minutes = Math.floor( (t/1000/60) % 60), //+
-				hours = Math.floor( (t/(1000*60*60)) ); //+
-
-		return { //+
-			'total': t, //+
-			'hours': hours, //+
-			'minutes': minutes, //+
-			'seconds': seconds //+
-		}; //+
-	}; //+
-
-	function setClock(id, endtime) { //+
-		let timer = document.getElementById(id), //+
-				hours = timer.querySelector('.hours'), //+
-				minutes = timer.querySelector('.minutes'), //+
-				seconds = timer.querySelector('.seconds'); //+
-		function  updateClock() { //+
-			let t = getTimeRemaining(endtime); //+
-			hours.innerHTML = t.hours; //+
-			minutes.innerHTML = t.minutes; //+
-			seconds.innerHTML = t.seconds; //+
-
-			if (t.total <= 0) { //+
-				clearInterval(timeInterval);
-			};
-
-			
-		};
-		updateClock();
-		let timeInterval = setInterval(updateClock, 1000);
-	};
-	setClock('timer', deadline);
 });
+
+
 
