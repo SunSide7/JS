@@ -11,11 +11,12 @@ class Options {
 			let newDiv = document.createElement("div");
 			document.body.appendChild(newDiv);
 			newDiv.textContent = "Текст";
-			newDiv.style.height = this.height;
-			newDiv.style.width = this.width;
-			newDiv.style.backgroundColor = this.bg;
-			newDiv.style.fontSize = this.fontSize;
-			newDiv.style.textAlign = this.textAlign;
+			newDiv.style.cssText = `height: ${this.height}; 
+															width: ${this.width}; 
+															background-color: ${this.bg}; 
+															font-size: ${this.fontSize}; 
+															text-align: ${this.textAlign};`
+
 		}
 };
 
